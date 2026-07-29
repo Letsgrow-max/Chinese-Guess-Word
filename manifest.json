@@ -1,0 +1,9 @@
+{
+  "name": "Chinese Guess Word",
+  "short_name": "字 Puzzle",
+  "description": "Learn Chinese characters by deconstructing them in a fun puzzle game.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f7f7f8",
+  "theme_color": "#ffffff"
+}
