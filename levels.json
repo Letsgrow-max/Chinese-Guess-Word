@@ -98,5 +98,1006 @@
         "stars": 5,
         "answers": ["亡", "口", "月", "贝", "凡", "一", "二", "三", "八"],
         "options": ["亡", "口", "月", "贝", "凡", "一", "二", "三", "八", "木", "水", "火", "土", "金", "日", "田", "人", "大"]
+    },
+    {
+        "id": 11,
+        "target": "尖",
+        "pinyin": "jiān",
+        "english": "Pointed / Sharp",
+        "chinese": "末端细小锐利。",
+        "stars": 1,
+        "answers": ["小", "大", "一", "八"],
+        "options": ["小", "大", "一", "八", "口", "日", "木", "土", "十", "人"]
+    },
+    {
+        "id": 12,
+        "target": "歪",
+        "pinyin": "wāi",
+        "english": "Crooked / Askew",
+        "chinese": "不正，偏斜。",
+        "stars": 1,
+        "answers": ["不", "正", "一", "止"],
+        "options": ["不", "正", "一", "止", "口", "日", "木", "土", "十", "人"]
+    },
+    {
+        "id": 13,
+        "target": "岩",
+        "pinyin": "yán",
+        "english": "Rock / Cliff",
+        "chinese": "构成地壳的石头；山崖。",
+        "stars": 1,
+        "answers": ["山", "石", "一", "口"],
+        "options": ["山", "石", "一", "口", "木", "水", "火", "土", "金", "月"]
+    },
+    {
+        "id": 14,
+        "target": "休",
+        "pinyin": "xiū",
+        "english": "Rest / Stop",
+        "chinese": "歇息；停止。",
+        "stars": 1,
+        "answers": ["亻", "木", "人", "十", "八"],
+        "options": ["亻", "木", "人", "十", "八", "日", "月", "水", "火", "土"]
+    },
+    {
+        "id": 15,
+        "target": "囚",
+        "pinyin": "qiú",
+        "english": "Prisoner",
+        "chinese": "被关押的人；拘禁。",
+        "stars": 1,
+        "answers": ["囗", "人"],
+        "options": ["囗", "人", "大", "木", "水", "火", "土", "日", "月", "田"]
+    },
+    {
+        "id": 16,
+        "target": "闪",
+        "pinyin": "shǎn",
+        "english": "Flash / Dodge",
+        "chinese": "突然显现；避开。",
+        "stars": 1,
+        "answers": ["门", "人"],
+        "options": ["门", "人", "口", "日", "木", "土", "十", "一", "二", "三"]
+    },
+    {
+        "id": 17,
+        "target": "炎",
+        "pinyin": "yán",
+        "english": "Flame / Inflammation",
+        "chinese": "热；指燃烧的火光。",
+        "stars": 2,
+        "answers": ["火", "人", "八"],
+        "options": ["火", "人", "八", "水", "木", "土", "金", "日", "月", "口"]
+    },
+    {
+        "id": 18,
+        "target": "灾",
+        "pinyin": "zāi",
+        "english": "Disaster",
+        "chinese": "自然界或人为的祸害。",
+        "stars": 2,
+        "answers": ["宀", "火", "人", "八"],
+        "options": ["宀", "火", "人", "八", "木", "水", "土", "金", "日", "月"]
+    },
+    {
+        "id": 19,
+        "target": "品",
+        "pinyin": "pǐn",
+        "english": "Product / Grade",
+        "chinese": "物件；等级；评量。",
+        "stars": 2,
+        "answers": ["口"],
+        "options": ["口", "日", "月", "木", "水", "火", "土", "金", "人", "大"]
+    },
+    {
+        "id": 20,
+        "target": "众",
+        "pinyin": "zhòng",
+        "english": "Crowd / Many",
+        "chinese": "许多人；许多。",
+        "stars": 2,
+        "answers": ["人"],
+        "options": ["人", "大", "口", "日", "月", "木", "水", "火", "土", "金"]
+    },
+    {
+        "id": 21,
+        "target": "晶",
+        "pinyin": "jīng",
+        "english": "Crystal / Clear",
+        "chinese": "明亮；结晶体。",
+        "stars": 2,
+        "answers": ["日", "一", "二", "三"],
+        "options": ["日", "一", "二", "三", "口", "木", "水", "火", "土", "月"]
+    },
+    {
+        "id": 22,
+        "target": "淼",
+        "pinyin": "miǎo",
+        "english": "Vast water",
+        "chinese": "形容水大漫无边际的样子。",
+        "stars": 2,
+        "answers": ["水"],
+        "options": ["水", "冰", "火", "土", "金", "木", "日", "月", "人", "口"]
+    },
+    {
+        "id": 23,
+        "target": "呆",
+        "pinyin": "dāi",
+        "english": "Foolish / Stay",
+        "chinese": "傻，迟钝；停留。",
+        "stars": 2,
+        "answers": ["口", "木", "十", "八"],
+        "options": ["口", "木", "十", "八", "日", "月", "水", "火", "土", "人"]
+    },
+    {
+        "id": 24,
+        "target": "杏",
+        "pinyin": "xìng",
+        "english": "Apricot",
+        "chinese": "一种落叶乔木或其果实。",
+        "stars": 2,
+        "answers": ["木", "口", "十", "八"],
+        "options": ["木", "口", "十", "八", "日", "月", "水", "火", "土", "人"]
+    },
+    {
+        "id": 25,
+        "target": "杳",
+        "pinyin": "yǎo",
+        "english": "Dark / Quiet",
+        "chinese": "不见踪影；幽暗。",
+        "stars": 2,
+        "answers": ["木", "日", "十", "八"],
+        "options": ["木", "日", "十", "八", "口", "月", "水", "火", "土", "人"]
+    },
+    {
+        "id": 26,
+        "target": "早",
+        "pinyin": "zǎo",
+        "english": "Early",
+        "chinese": "清晨；时间在先的。",
+        "stars": 2,
+        "answers": ["日", "十", "一"],
+        "options": ["日", "十", "一", "木", "水", "火", "土", "口", "月", "人"]
+    },
+    {
+        "id": 27,
+        "target": "旱",
+        "pinyin": "hàn",
+        "english": "Drought",
+        "chinese": "长时间无雨，缺水。",
+        "stars": 2,
+        "answers": ["日", "干", "一", "十", "二"],
+        "options": ["日", "干", "一", "十", "二", "木", "水", "火", "土", "月"]
+    },
+    {
+        "id": 28,
+        "target": "旦",
+        "pinyin": "dàn",
+        "english": "Dawn / Morning",
+        "chinese": "早晨；天亮。",
+        "stars": 2,
+        "answers": ["日", "一"],
+        "options": ["日", "一", "木", "水", "火", "土", "口", "月", "十", "二"]
+    },
+    {
+        "id": 29,
+        "target": "亘",
+        "pinyin": "gèn",
+        "english": "Span / Extend",
+        "chinese": "空间或时间上延续不断。",
+        "stars": 2,
+        "answers": ["一", "旦", "日", "二"],
+        "options": ["一", "旦", "日", "二", "木", "水", "火", "土", "口", "十"]
+    },
+    {
+        "id": 30,
+        "target": "劣",
+        "pinyin": "liè",
+        "english": "Inferior / Bad",
+        "chinese": "不好，跟“优”相对。",
+        "stars": 2,
+        "answers": ["少", "力", "小"],
+        "options": ["少", "力", "小", "大", "人", "日", "月", "木", "水", "火"]
+    },
+    {
+        "id": 31,
+        "target": "夯",
+        "pinyin": "hāng",
+        "english": "Tamp / Ram",
+        "chinese": "砸实地基的工具；砸实。",
+        "stars": 3,
+        "answers": ["大", "力", "人", "一"],
+        "options": ["大", "力", "人", "一", "小", "木", "水", "火", "土", "日"]
+    },
+    {
+        "id": 32,
+        "target": "蚕",
+        "pinyin": "cán",
+        "english": "Silkworm",
+        "chinese": "吐丝结茧的昆虫。",
+        "stars": 3,
+        "answers": ["天", "虫", "一", "大", "人", "口"],
+        "options": ["天", "虫", "一", "大", "人", "口", "日", "月", "木", "水", "火", "土"]
+    },
+    {
+        "id": 33,
+        "target": "贡",
+        "pinyin": "gòng",
+        "english": "Tribute / Offer",
+        "chinese": "古代臣民献给帝王的物品。",
+        "stars": 3,
+        "answers": ["工", "贝", "一", "八", "人"],
+        "options": ["工", "贝", "一", "八", "人", "木", "水", "火", "土", "日", "口"]
+    },
+    {
+        "id": 34,
+        "target": "吞",
+        "pinyin": "tūn",
+        "english": "Swallow",
+        "chinese": "不嚼咽下去。",
+        "stars": 3,
+        "answers": ["天", "口", "一", "大", "人"],
+        "options": ["天", "口", "一", "大", "人", "日", "月", "木", "水", "火", "土"]
+    },
+    {
+        "id": 35,
+        "target": "吾",
+        "pinyin": "wú",
+        "english": "I / My",
+        "chinese": "文言代词，我。",
+        "stars": 3,
+        "answers": ["五", "口", "一", "二"],
+        "options": ["五", "口", "一", "二", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 36,
+        "target": "呈",
+        "pinyin": "chéng",
+        "english": "Present / Appear",
+        "chinese": "显出，露出；恭敬地送上去。",
+        "stars": 3,
+        "answers": ["口", "王", "一", "二", "三", "十", "土"],
+        "options": ["口", "王", "一", "二", "三", "十", "土", "日", "月", "木", "水", "火"]
+    },
+    {
+        "id": 37,
+        "target": "冰",
+        "pinyin": "bīng",
+        "english": "Ice",
+        "chinese": "水在零度或零度以下凝结成的固体。",
+        "stars": 3,
+        "answers": ["冫", "水"],
+        "options": ["冫", "水", "木", "火", "土", "金", "日", "月", "人", "口"]
+    },
+    {
+        "id": 38,
+        "target": "唱",
+        "pinyin": "chàng",
+        "english": "Sing",
+        "chinese": "发出抑扬有节奏的声音。",
+        "stars": 3,
+        "answers": ["口", "日", "一", "二"],
+        "options": ["口", "日", "一", "二", "木", "水", "火", "土", "月", "人", "十"]
+    },
+    {
+        "id": 39,
+        "target": "枯",
+        "pinyin": "kū",
+        "english": "Withered / Dry",
+        "chinese": "失去水分，植物干死。",
+        "stars": 3,
+        "answers": ["木", "古", "十", "口", "八"],
+        "options": ["木", "古", "十", "口", "八", "日", "月", "水", "火", "土", "人"]
+    },
+    {
+        "id": 40,
+        "target": "肚",
+        "pinyin": "dù",
+        "english": "Belly / Stomach",
+        "chinese": "腹部；胃。",
+        "stars": 3,
+        "answers": ["月", "土", "十", "一", "二"],
+        "options": ["月", "土", "十", "一", "二", "木", "水", "火", "金", "日", "口"]
+    },
+    {
+        "id": 41,
+        "target": "肝",
+        "pinyin": "gān",
+        "english": "Liver",
+        "chinese": "人体内最大的消化腺。",
+        "stars": 3,
+        "answers": ["月", "干", "一", "十", "二"],
+        "options": ["月", "干", "一", "十", "二", "木", "水", "火", "土", "日", "口"]
+    },
+    {
+        "id": 42,
+        "target": "胆",
+        "pinyin": "dǎn",
+        "english": "Gallbladder / Courage",
+        "chinese": "内脏之一；引申为勇气。",
+        "stars": 3,
+        "answers": ["月", "旦", "日", "一", "二"],
+        "options": ["月", "旦", "日", "一", "二", "木", "水", "火", "土", "口", "十"]
+    },
+    {
+        "id": 43,
+        "target": "胖",
+        "pinyin": "pàng",
+        "english": "Fat / Plump",
+        "chinese": "人体内含脂肪多。",
+        "stars": 3,
+        "answers": ["月", "半", "十", "二", "一"],
+        "options": ["月", "半", "十", "二", "一", "木", "水", "火", "土", "日", "口"]
+    },
+    {
+        "id": 44,
+        "target": "泪",
+        "pinyin": "lèi",
+        "english": "Tear",
+        "chinese": "眼里流出的水。",
+        "stars": 3,
+        "answers": ["氵", "目", "日", "一", "二", "三"],
+        "options": ["氵", "目", "日", "一", "二", "三", "木", "水", "火", "土", "口"]
+    },
+    {
+        "id": 45,
+        "target": "鸣",
+        "pinyin": "míng",
+        "english": "Chirp / Sound",
+        "chinese": "鸟兽或昆虫叫；发声。",
+        "stars": 3,
+        "answers": ["口", "鸟", "一"],
+        "options": ["口", "鸟", "一", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 46,
+        "target": "岚",
+        "pinyin": "lán",
+        "english": "Mountain mist",
+        "chinese": "山间的雾气。",
+        "stars": 3,
+        "answers": ["山", "风", "几", "乂"],
+        "options": ["山", "风", "几", "乂", "口", "日", "木", "水", "火", "土"]
+    },
+    {
+        "id": 47,
+        "target": "仙",
+        "pinyin": "xiān",
+        "english": "Immortal / Fairy",
+        "chinese": "神话中称有特殊能力、长生不死的人。",
+        "stars": 3,
+        "answers": ["亻", "山", "人"],
+        "options": ["亻", "山", "人", "大", "口", "日", "月", "木", "水", "火"]
+    },
+    {
+        "id": 48,
+        "target": "伐",
+        "pinyin": "fá",
+        "english": "Cut down / Attack",
+        "chinese": "砍；讨伐。",
+        "stars": 3,
+        "answers": ["亻", "戈", "人", "一"],
+        "options": ["亻", "戈", "人", "一", "口", "日", "月", "木", "水", "火"]
+    },
+    {
+        "id": 49,
+        "target": "伴",
+        "pinyin": "bàn",
+        "english": "Companion / Accompany",
+        "chinese": "同在一起而能互助的人；陪同。",
+        "stars": 3,
+        "answers": ["亻", "半", "人", "十", "二", "一"],
+        "options": ["亻", "半", "人", "十", "二", "一", "日", "月", "木", "水", "火"]
+    },
+    {
+        "id": 50,
+        "target": "位",
+        "pinyin": "wèi",
+        "english": "Position / Place",
+        "chinese": "所处的地方；职务、地位。",
+        "stars": 3,
+        "answers": ["亻", "立", "人", "十", "一", "二"],
+        "options": ["亻", "立", "人", "十", "一", "二", "日", "月", "木", "水", "火", "土"]
+    },
+    {
+        "id": 51,
+        "target": "体",
+        "pinyin": "tǐ",
+        "english": "Body / Form",
+        "chinese": "人、动物的全身；事物的本原。",
+        "stars": 3,
+        "answers": ["亻", "本", "人", "木", "十", "八", "一"],
+        "options": ["亻", "本", "人", "木", "十", "八", "一", "日", "月", "水", "火", "土"]
+    },
+    {
+        "id": 52,
+        "target": "信",
+        "pinyin": "xìn",
+        "english": "Believe / Letter",
+        "chinese": "诚实，不欺骗；书信。",
+        "stars": 3,
+        "answers": ["亻", "言", "人", "一", "二", "三", "口"],
+        "options": ["亻", "言", "人", "一", "二", "三", "口", "日", "月", "木", "水", "火"]
+    },
+    {
+        "id": 53,
+        "target": "查",
+        "pinyin": "chá",
+        "english": "Check / Investigate",
+        "chinese": "考察；翻阅。",
+        "stars": 4,
+        "answers": ["木", "旦", "日", "一", "十", "八"],
+        "options": ["木", "旦", "日", "一", "十", "八", "口", "水", "火", "土", "金", "人"]
+    },
+    {
+        "id": 54,
+        "target": "香",
+        "pinyin": "xiāng",
+        "english": "Fragrant / Incense",
+        "chinese": "气味好闻，与“臭”相对。",
+        "stars": 4,
+        "answers": ["禾", "日", "木", "一", "十", "八"],
+        "options": ["禾", "日", "木", "一", "十", "八", "口", "水", "火", "土", "金", "人"]
+    },
+    {
+        "id": 55,
+        "target": "音",
+        "pinyin": "yīn",
+        "english": "Sound / Tone",
+        "chinese": "声音；乐音。",
+        "stars": 4,
+        "answers": ["立", "日", "一", "二", "十", "口"],
+        "options": ["立", "日", "一", "二", "十", "口", "木", "水", "火", "土", "金", "人"]
+    },
+    {
+        "id": 56,
+        "target": "章",
+        "pinyin": "zhāng",
+        "english": "Chapter / Badge",
+        "chinese": "诗文的段落；佩带的标志。",
+        "stars": 4,
+        "answers": ["立", "早", "日", "十", "一", "二"],
+        "options": ["立", "早", "日", "十", "一", "二", "口", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 57,
+        "target": "竟",
+        "pinyin": "jìng",
+        "english": "Unexpectedly / Eventually",
+        "chinese": "居然，出乎意料；终了。",
+        "stars": 4,
+        "answers": ["立", "兄", "口", "儿", "十", "一", "二"],
+        "options": ["立", "兄", "口", "儿", "十", "一", "二", "日", "木", "水", "火", "土"]
+    },
+    {
+        "id": 58,
+        "target": "照",
+        "pinyin": "zhào",
+        "english": "Shine / Reflect",
+        "chinese": "光线射在物体上；对着镜子看自己。",
+        "stars": 4,
+        "answers": ["日", "刀", "口", "灬", "一"],
+        "options": ["日", "刀", "口", "灬", "一", "木", "水", "火", "土", "金", "人", "月"]
+    },
+    {
+        "id": 59,
+        "target": "煎",
+        "pinyin": "jiān",
+        "english": "Pan-fry",
+        "chinese": "用少量的油加热使食物熟。",
+        "stars": 4,
+        "answers": ["前", "灬", "月", "刀", "一"],
+        "options": ["前", "灬", "月", "刀", "一", "口", "日", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 60,
+        "target": "然",
+        "pinyin": "rán",
+        "english": "Correct / So",
+        "chinese": "对，不错；如此。",
+        "stars": 4,
+        "answers": ["夕", "犬", "灬", "大"],
+        "options": ["夕", "犬", "灬", "大", "口", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 61,
+        "target": "愁",
+        "pinyin": "chóu",
+        "english": "Worry / Anxious",
+        "chinese": "忧虑，发愁。",
+        "stars": 4,
+        "answers": ["秋", "心", "禾", "火", "木"],
+        "options": ["秋", "心", "禾", "火", "木", "口", "日", "月", "水", "土", "人", "大"]
+    },
+    {
+        "id": 62,
+        "target": "息",
+        "pinyin": "xī",
+        "english": "Breath / Rest",
+        "chinese": "呼吸时进出的气；停止。",
+        "stars": 4,
+        "answers": ["自", "心", "目", "日", "一", "二", "三"],
+        "options": ["自", "心", "目", "日", "一", "二", "三", "口", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 63,
+        "target": "暮",
+        "pinyin": "mù",
+        "english": "Dusk / Late",
+        "chinese": "傍晚，太阳落山的时候。",
+        "stars": 4,
+        "answers": ["莫", "日", "艹", "大", "草"],
+        "options": ["莫", "日", "艹", "大", "草", "口", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 64,
+        "target": "幕",
+        "pinyin": "mù",
+        "english": "Curtain / Screen",
+        "chinese": "覆布，帐篷；挂着的大块布。",
+        "stars": 4,
+        "answers": ["莫", "巾", "艹", "大", "日"],
+        "options": ["莫", "巾", "艹", "大", "日", "口", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 65,
+        "target": "慕",
+        "pinyin": "mù",
+        "english": "Admire / Yearn for",
+        "chinese": "向往，敬仰。",
+        "stars": 4,
+        "answers": ["莫", "㣺", "艹", "大", "日", "小"],
+        "options": ["莫", "㣺", "艹", "大", "日", "小", "口", "月", "木", "水", "火", "土"]
+    },
+    {
+        "id": 66,
+        "target": "攀",
+        "pinyin": "pān",
+        "english": "Climb",
+        "chinese": "抓住东西向上爬。",
+        "stars": 4,
+        "answers": ["木", "爻", "大", "手"],
+        "options": ["木", "爻", "大", "手", "口", "日", "月", "水", "火", "土", "人"]
+    },
+    {
+        "id": 67,
+        "target": "算",
+        "pinyin": "suàn",
+        "english": "Calculate / Count",
+        "chinese": "核计数目；作罢。",
+        "stars": 4,
+        "answers": ["⺮", "目", "廾", "日", "一", "二", "三"],
+        "options": ["⺮", "目", "廾", "日", "一", "二", "三", "口", "木", "水", "火", "土", "大"]
+    },
+    {
+        "id": 68,
+        "target": "籍",
+        "pinyin": "jí",
+        "english": "Book / Record",
+        "chinese": "书，书册；登记册。",
+        "stars": 4,
+        "answers": ["⺮", "耒", "昔", "木", "一", "十", "日"],
+        "options": ["⺮", "耒", "昔", "木", "一", "十", "日", "口", "月", "水", "火", "土", "人"]
+    },
+    {
+        "id": 69,
+        "target": "影",
+        "pinyin": "yǐng",
+        "english": "Shadow / Image",
+        "chinese": "物体挡住光线时所形成的暗区。",
+        "stars": 4,
+        "answers": ["景", "彡", "日", "京", "小", "口"],
+        "options": ["景", "彡", "日", "京", "小", "口", "月", "木", "水", "火", "土", "人", "大"]
+    },
+    {
+        "id": 70,
+        "target": "题",
+        "pinyin": "tí",
+        "english": "Topic / Subject",
+        "chinese": "写作或讲演的内容；题目。",
+        "stars": 4,
+        "answers": ["是", "页", "日", "疋", "贝"],
+        "options": ["是", "页", "日", "疋", "贝", "口", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 71,
+        "target": "额",
+        "pinyin": "é",
+        "english": "Forehead / Amount",
+        "chinese": "头前部；规定的数目。",
+        "stars": 4,
+        "answers": ["客", "页", "宀", "各", "贝", "口"],
+        "options": ["客", "页", "宀", "各", "贝", "口", "日", "月", "木", "水", "火", "土"]
+    },
+    {
+        "id": 72,
+        "target": "颜",
+        "pinyin": "yán",
+        "english": "Color / Face",
+        "chinese": "面容，脸色；色彩。",
+        "stars": 4,
+        "answers": ["彦", "页", "立", "厂", "彡", "贝"],
+        "options": ["彦", "页", "立", "厂", "彡", "贝", "口", "日", "月", "木", "水", "火"]
+    },
+    {
+        "id": 73,
+        "target": "辨",
+        "pinyin": "biàn",
+        "english": "Distinguish / Recognize",
+        "chinese": "分别，分析，明察。",
+        "stars": 4,
+        "answers": ["辛", "刀", "立", "十"],
+        "options": ["辛", "刀", "立", "十", "口", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 74,
+        "target": "辩",
+        "pinyin": "biàn",
+        "english": "Debate / Argue",
+        "chinese": "说明是非或争论真假。",
+        "stars": 4,
+        "answers": ["辛", "言", "立", "十", "口"],
+        "options": ["辛", "言", "立", "十", "口", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 75,
+        "target": "瓣",
+        "pinyin": "bàn",
+        "english": "Petal / Valve",
+        "chinese": "花冠的组成部分；量词。",
+        "stars": 4,
+        "answers": ["辛", "瓜", "立", "十"],
+        "options": ["辛", "瓜", "立", "十", "口", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 76,
+        "target": "辫",
+        "pinyin": "biàn",
+        "english": "Braid / Pigtail",
+        "chinese": "分股交叉编成的长条发髻。",
+        "stars": 4,
+        "answers": ["辛", "糸", "立", "十"],
+        "options": ["辛", "糸", "立", "十", "口", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 77,
+        "target": "藏",
+        "pinyin": "cáng",
+        "english": "Hide / Conceal",
+        "chinese": "隐蔽；收存。",
+        "stars": 5,
+        "answers": ["艹", "厂", "臣", "戈", "臧", "一"],
+        "options": ["艹", "厂", "臣", "戈", "臧", "一", "口", "日", "月", "木", "水", "火", "土"]
+    },
+    {
+        "id": 78,
+        "target": "繁",
+        "pinyin": "fán",
+        "english": "Complicated / Numerous",
+        "chinese": "复杂；多；兴盛。",
+        "stars": 5,
+        "answers": ["敏", "糸", "每", "攵", "小"],
+        "options": ["敏", "糸", "每", "攵", "小", "口", "日", "月", "木", "水", "火", "土"]
+    },
+    {
+        "id": 79,
+        "target": "耀",
+        "pinyin": "yào",
+        "english": "Shine / Dazzle",
+        "chinese": "光线强烈地照射；夸耀。",
+        "stars": 5,
+        "answers": ["光", "翟", "小", "羽", "隹"],
+        "options": ["光", "翟", "小", "羽", "隹", "口", "日", "月", "木", "水", "火", "土"]
+    },
+    {
+        "id": 80,
+        "target": "疆",
+        "pinyin": "jiāng",
+        "english": "Border / Boundary",
+        "chinese": "国界，边界。",
+        "stars": 5,
+        "answers": ["弓", "土", "畺", "田", "一"],
+        "options": ["弓", "土", "畺", "田", "一", "口", "日", "月", "木", "水", "火", "人"]
+    },
+    {
+        "id": 81,
+        "target": "壤",
+        "pinyin": "rǎng",
+        "english": "Soil / Earth",
+        "chinese": "松软的泥土。",
+        "stars": 5,
+        "answers": ["土", "襄", "口", "衣"],
+        "options": ["土", "襄", "口", "衣", "日", "月", "木", "水", "火", "金", "人", "大"]
+    },
+    {
+        "id": 82,
+        "target": "嚷",
+        "pinyin": "rǎng",
+        "english": "Shout / Yell",
+        "chinese": "喊叫。",
+        "stars": 5,
+        "answers": ["口", "襄", "衣"],
+        "options": ["口", "襄", "衣", "日", "月", "木", "水", "火", "土", "金", "人", "大"]
+    },
+    {
+        "id": 83,
+        "target": "镶",
+        "pinyin": "xiāng",
+        "english": "Inlay / Embed",
+        "chinese": "把东西嵌进去或在边缘加边。",
+        "stars": 5,
+        "answers": ["金", "襄", "口", "衣"],
+        "options": ["金", "襄", "口", "衣", "日", "月", "木", "水", "火", "土", "人", "大"]
+    },
+    {
+        "id": 84,
+        "target": "鑫",
+        "pinyin": "xīn",
+        "english": "Wealth (used in names)",
+        "chinese": "旧时商店字号、人名用字，取其金多兴旺之意。",
+        "stars": 5,
+        "answers": ["金", "人", "王", "土", "一", "二", "三"],
+        "options": ["金", "人", "王", "土", "一", "二", "三", "口", "日", "月", "木", "水", "火"]
+    },
+    {
+        "id": 85,
+        "target": "矗",
+        "pinyin": "chù",
+        "english": "Stand tall / Lofty",
+        "chinese": "直立，高耸。",
+        "stars": 5,
+        "answers": ["直", "十", "目", "一", "二", "三", "且"],
+        "options": ["直", "十", "目", "一", "二", "三", "且", "口", "日", "月", "木", "水", "火", "土"]
+    },
+    {
+        "id": 86,
+        "target": "龘",
+        "pinyin": "dá",
+        "english": "Appearance of a dragon flying",
+        "chinese": "形容群龙腾飞的样子。",
+        "stars": 5,
+        "answers": ["龙", "立", "月"],
+        "options": ["龙", "立", "月", "口", "日", "木", "水", "火", "土", "人", "大", "十"]
+    },
+    {
+        "id": 87,
+        "target": "蠢",
+        "pinyin": "chǔn",
+        "english": "Stupid / Clumsy",
+        "chinese": "愚笨，笨拙。",
+        "stars": 5,
+        "answers": ["春", "虫", "三", "人", "日"],
+        "options": ["春", "虫", "三", "人", "日", "口", "月", "木", "水", "火", "土", "大"]
+    },
+    {
+        "id": 88,
+        "target": "霸",
+        "pinyin": "bà",
+        "english": "Overlord / Tyrant",
+        "chinese": "指依仗权势欺压别人的人。",
+        "stars": 5,
+        "answers": ["雨", "革", "月", "田"],
+        "options": ["雨", "革", "月", "田", "口", "日", "木", "水", "火", "土", "人", "大"]
+    },
+    {
+        "id": 89,
+        "target": "露",
+        "pinyin": "lù",
+        "english": "Dew / Reveal",
+        "chinese": "靠近地面的水蒸气夜间遇冷凝结成的小水球；显现。",
+        "stars": 5,
+        "answers": ["雨", "路", "足", "各", "口"],
+        "options": ["雨", "路", "足", "各", "口", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 90,
+        "target": "霹",
+        "pinyin": "pī",
+        "english": "Thunderbolt / Crash",
+        "chinese": "响雷，震雷。",
+        "stars": 5,
+        "answers": ["雨", "辟", "尸", "口", "辛"],
+        "options": ["雨", "辟", "尸", "口", "辛", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 91,
+        "target": "雳",
+        "pinyin": "lì",
+        "english": "Thunderbolt",
+        "chinese": "响雷，震雷（同霹雳）。",
+        "stars": 5,
+        "answers": ["雨", "历", "厂", "力"],
+        "options": ["雨", "历", "厂", "力", "口", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 92,
+        "target": "雾",
+        "pinyin": "wù",
+        "english": "Fog / Mist",
+        "chinese": "气温下降时，在接近地面的空气中，水蒸气凝结成的悬浮微小水滴。",
+        "stars": 5,
+        "answers": ["雨", "务", "夂", "力"],
+        "options": ["雨", "务", "夂", "力", "口", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 93,
+        "target": "霾",
+        "pinyin": "mái",
+        "english": "Haze / Smog",
+        "chinese": "空气中因悬浮着大量的烟、尘等微粒而形成的混浊现象。",
+        "stars": 5,
+        "answers": ["雨", "貍, 豸", "里", "田", "土"],
+        "options": ["雨", "貍, 豸", "里", "田", "土", "口", "日", "月", "木", "水", "火", "人"]
+    },
+    {
+        "id": 94,
+        "target": "麒",
+        "pinyin": "qí",
+        "english": "Qilin (Mythical beast)",
+        "chinese": "古代传说中的一种动物，像鹿，全身有鳞甲。",
+        "stars": 5,
+        "answers": ["鹿", "其", "八", "一"],
+        "options": ["鹿", "其", "八", "一", "口", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 95,
+        "target": "鹰",
+        "pinyin": "yīng",
+        "english": "Eagle / Falcon",
+        "chinese": "鸟类的一科，猛禽。",
+        "stars": 5,
+        "answers": ["广", "隹", "鸟", "人"],
+        "options": ["广", "隹", "鸟", "人", "口", "日", "月", "木", "水", "火", "土", "大"]
+    },
+    {
+        "id": 96,
+        "target": "鹭",
+        "pinyin": "lù",
+        "english": "Heron / Egret",
+        "chinese": "水鸟名，嘴直而尖，颈和腿很长。",
+        "stars": 5,
+        "answers": ["路", "鸟", "足", "各", "口"],
+        "options": ["路", "鸟", "足", "各", "口", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 97,
+        "target": "鹦",
+        "pinyin": "yīng",
+        "english": "Parrot",
+        "chinese": "鸟名，羽毛色彩鲜艳，能模仿人说话。",
+        "stars": 5,
+        "answers": ["婴", "鸟", "贝", "女"],
+        "options": ["婴", "鸟", "贝", "女", "口", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 98,
+        "target": "鹉",
+        "pinyin": "wǔ",
+        "english": "Parrot",
+        "chinese": "鹦鹉，鸟名。",
+        "stars": 5,
+        "answers": ["武", "鸟", "止", "戈", "一"],
+        "options": ["武", "鸟", "止", "戈", "一", "口", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 99,
+        "target": "鸽",
+        "pinyin": "gē",
+        "english": "Pigeon / Dove",
+        "chinese": "一种常见的鸟类，常用于通信或观赏。",
+        "stars": 5,
+        "answers": ["合", "鸟", "人", "一", "口"],
+        "options": ["合", "鸟", "人", "一", "口", "日", "月", "木", "水", "火", "土", "大"]
+    },
+    {
+        "id": 100,
+        "target": "鹅",
+        "pinyin": "é",
+        "english": "Goose",
+        "chinese": "家禽，比鸭大，颈长，脚有蹼。",
+        "stars": 5,
+        "answers": ["我", "鸟", "手", "戈"],
+        "options": ["我", "鸟", "手", "戈", "口", "日", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 101,
+        "target": "鹏",
+        "pinyin": "péng",
+        "english": "Roc (Mythical bird)",
+        "chinese": "古代传说中最大的鸟。",
+        "stars": 5,
+        "answers": ["朋", "鸟", "月"],
+        "options": ["朋", "鸟", "月", "口", "日", "木", "水", "火", "土", "人", "大", "十"]
+    },
+    {
+        "id": 102,
+        "target": "雕",
+        "pinyin": "diāo",
+        "english": "Carve / Eagle",
+        "chinese": "鸟类的一科，猛禽；刻画。",
+        "stars": 5,
+        "answers": ["周", "隹", "吉", "口"],
+        "options": ["周", "隹", "吉", "口", "日", "月", "木", "水", "火", "土", "人", "大"]
+    },
+    {
+        "id": 103,
+        "target": "集",
+        "pinyin": "jí",
+        "english": "Gather / Collect",
+        "chinese": "聚在一起。",
+        "stars": 4,
+        "answers": ["隹", "木", "十", "八"],
+        "options": ["隹", "木", "十", "八", "口", "日", "月", "水", "火", "土", "人", "大"]
+    },
+    {
+        "id": 104,
+        "target": "雀",
+        "pinyin": "què",
+        "english": "Sparrow",
+        "chinese": "鸟类的一科，体型较小。",
+        "stars": 4,
+        "answers": ["少", "隹", "小"],
+        "options": ["少", "隹", "小", "口", "日", "月", "木", "水", "火", "土", "人", "大"]
+    },
+    {
+        "id": 105,
+        "target": "裹",
+        "pinyin": "guǒ",
+        "english": "Wrap / Bind",
+        "chinese": "包，缠绕。",
+        "stars": 5,
+        "answers": ["衣", "果", "木", "日", "十", "八"],
+        "options": ["衣", "果", "木", "日", "十", "八", "口", "月", "水", "火", "土", "人"]
+    },
+    {
+        "id": 106,
+        "target": "褒",
+        "pinyin": "bāo",
+        "english": "Praise / Commend",
+        "chinese": "赞扬，夸奖，与“贬”相对。",
+        "stars": 5,
+        "answers": ["衣", "保", "亻", "呆", "口", "木"],
+        "options": ["衣", "保", "亻", "呆", "口", "木", "日", "月", "水", "火", "土", "人"]
+    },
+    {
+        "id": 107,
+        "target": "羸",
+        "pinyin": "léi",
+        "english": "Thin / Weak",
+        "chinese": "瘦弱。",
+        "stars": 5,
+        "answers": ["亡", "口", "月", "羊", "凡"],
+        "options": ["亡", "口", "月", "羊", "凡", "日", "木", "水", "火", "土", "人", "大"]
+    },
+    {
+        "id": 108,
+        "target": "膏",
+        "pinyin": "gāo",
+        "english": "Ointment / Paste",
+        "chinese": "稠糊状的药剂或油脂。",
+        "stars": 4,
+        "answers": ["高", "月", "口", "冂"],
+        "options": ["高", "月", "口", "冂", "日", "木", "水", "火", "土", "人", "大", "十"]
+    },
+    {
+        "id": 109,
+        "target": "盲",
+        "pinyin": "máng",
+        "english": "Blind",
+        "chinese": "瞎，看不见东西。",
+        "stars": 4,
+        "answers": ["亡", "目", "日", "一", "二", "三"],
+        "options": ["亡", "目", "日", "一", "二", "三", "口", "月", "木", "水", "火", "土", "人"]
+    },
+    {
+        "id": 110,
+        "target": "忘",
+        "pinyin": "wàng",
+        "english": "Forget",
+        "chinese": "不记得，遗漏。",
+        "stars": 4,
+        "answers": ["亡", "心"],
+        "options": ["亡", "心", "口", "日", "月", "木", "水", "火", "土", "人", "大", "十"]
     }
 ]
+
