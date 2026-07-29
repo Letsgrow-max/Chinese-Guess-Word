@@ -1,6 +1,6 @@
 {
-  "name": "Chinese Guess Word",
-  "short_name": "字 Puzzle",
+  "name": "Word Puzzle Paradise - 字谜乐园",
+  "short_name": "字谜乐园",
   "description": "Learn Chinese characters by deconstructing them in a fun puzzle game.",
   "start_url": "/index.html",
   "display": "standalone",
