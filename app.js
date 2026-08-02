@@ -84,14 +84,38 @@ function navigateHome() {
 // --- Home Screen Logic ---
 function renderHome() {
     ui.levelList.innerHTML = '';
-    gameData.forEach(level => {
+    
+    gameData.forEach((level, index) => {
         const btn = document.createElement('button');
         btn.classList.add('level-btn');
-        if (completedLevels.includes(level.id)) {
+        
+        // Determine if level is unlocked
+        // Level 1 is always unlocked. Level N is unlocked if Level N-1 is in completedLevels.
+        const isUnlocked = (index === 0) || completedLevels.includes(gameData[index - 1].id);
+        const isCompleted = completedLevels.includes(level.id);
+
+        if (isCompleted) {
             btn.classList.add('completed');
+            btn.innerHTML = `${level.id} ✓`;
+        } else if (isUnlocked) {
+            btn.classList.add('unlocked');
+            btn.innerHTML = `${level.id}`;
+        } else {
+            btn.classList.add('locked');
+            btn.innerHTML = `🔒<br><span style="font-size: 14px;">${level.id}</span>`;
         }
-        btn.innerText = level.id;
-        btn.addEventListener('click', () => startLevel(level));
+
+        // Click handler with progression check
+        btn.addEventListener('click', () => {
+            if (isUnlocked) {
+                startLevel(level);
+            } else {
+                // Optional: Feedback when clicking a locked level
+                btn.classList.add('wrong');
+                setTimeout(() => btn.classList.remove('wrong'), 400);
+            }
+        });
+
         ui.levelList.appendChild(btn);
     });
 }
@@ -190,18 +214,15 @@ function updateHintButton() {
 function useHint() {
     if (coins < HINT_COST) return;
     
-    // Find an answer not yet discovered
     const missingAnswers = currentLevelData.answers.filter(a => !discoveredAnswers.includes(a));
     if (missingAnswers.length === 0) return;
     
     const hintChar = missingAnswers[0];
     
-    // Deduct coins
     coins -= HINT_COST;
     updateCoinDisplay();
     updateHintButton();
     
-    // Visually trigger the correct tile
     const tiles = Array.from(document.querySelectorAll('.tile'));
     const targetTile = tiles.find(t => t.dataset.char === hintChar);
     if (targetTile) {
@@ -216,7 +237,7 @@ function winLevel() {
         localStorage.setItem('guessWordCompleted', JSON.stringify(completedLevels));
     }
     
-    const reward = 10 + currentStars; // Bonus for leftover stars
+    const reward = 10 + currentStars;
     coins += reward;
     updateCoinDisplay();
     
@@ -225,8 +246,10 @@ function winLevel() {
     ui.resultMessage.innerText = `You mastered the character ${currentLevelData.target}.`;
     ui.rewardCoins.innerText = reward;
     
-    // Hide Next button if it's the last level
-    const isLastLevel = currentLevelData.id === gameData[gameData.length - 1].id;
+    const currentIndex = gameData.findIndex(l => l.id === currentLevelData.id);
+    const isLastLevel = currentIndex === gameData.length - 1;
+    
+    // Only show "Next Level" if there is a next level available
     ui.btnNext.style.display = isLastLevel ? 'none' : 'block';
     
     showScreen('result');
@@ -238,14 +261,12 @@ function loseLevel() {
     ui.resultMessage.innerText = "You tapped too many incorrect strokes. Try again!";
     ui.rewardCoins.innerText = "0";
     
-    // Change "Next" button to "Try Again"
     ui.btnNext.innerText = "Try Again";
     ui.btnNext.style.display = 'block';
     
-    // Temporarily overwrite click handler for this specific failure
     ui.btnNext.onclick = () => {
-        ui.btnNext.innerText = "Next Level"; // reset text
-        ui.btnNext.onclick = loadNextLevel;  // reset handler
+        ui.btnNext.innerText = "Next Level";
+        ui.btnNext.onclick = loadNextLevel;
         startLevel(currentLevelData);
     };
     
