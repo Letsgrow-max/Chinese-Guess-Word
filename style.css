@@ -107,18 +107,30 @@ header {
     background: var(--card-bg);
     border: 2px solid var(--border-color);
     border-radius: var(--radius-md);
-    padding: 20px 0;
-    font-size: 24px;
+    padding: 15px 0;
+    font-size: 20px;
     font-weight: bold;
     color: var(--text-main);
     cursor: pointer;
     box-shadow: 0 4px 0 var(--border-color);
-    transition: transform 0.1s, box-shadow 0.1s;
+    transition: transform 0.1s, box-shadow 0.1s, background-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
 }
 
-.level-btn:active {
+.level-btn:active:not(.locked) {
     transform: translateY(4px);
     box-shadow: 0 0 0 var(--border-color);
+}
+
+.level-btn.unlocked {
+    background: var(--card-bg);
+    color: var(--text-main);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 0 var(--primary-color);
 }
 
 .level-btn.completed {
@@ -126,6 +138,15 @@ header {
     color: white;
     border-color: var(--primary-dark);
     box-shadow: 0 4px 0 var(--primary-dark);
+}
+
+.level-btn.locked {
+    background: #eaeaea;
+    color: #a1a1a1;
+    border-color: #d1d1d1;
+    box-shadow: 0 4px 0 #d1d1d1;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 /* Game Screen */
@@ -200,7 +221,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    min-height: 44px; /* Space for at least one row */
+    min-height: 44px;
 }
 
 .discovered-tile {
@@ -247,12 +268,12 @@ header {
     cursor: default;
 }
 
-.tile.wrong {
+.tile.wrong, .level-btn.wrong {
     animation: shake 0.4s;
-    background: var(--error-color);
-    color: white;
-    border-color: #cc3c3c;
-    box-shadow: 0 4px 0 #cc3c3c;
+    background: var(--error-color) !important;
+    color: white !important;
+    border-color: #cc3c3c !important;
+    box-shadow: 0 4px 0 #cc3c3c !important;
 }
 
 @keyframes shake {
