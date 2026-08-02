@@ -110,7 +110,7 @@ function renderHome() {
             if (isUnlocked) {
                 startLevel(level);
             } else {
-                // Optional: Feedback when clicking a locked level
+                // Shake effect on locked level click
                 btn.classList.add('wrong');
                 setTimeout(() => btn.classList.remove('wrong'), 400);
             }
