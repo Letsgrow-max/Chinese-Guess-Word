@@ -1,338 +1,284 @@
-:root {
-    --primary-color: #58cc02; /* Duolingo Green */
-    --primary-dark: #46a302;
-    --error-color: #ff4b4b;
-    --bg-color: #f7f7f8;
-    --card-bg: #ffffff;
-    --text-main: #3c3c3c;
-    --text-muted: #afafaf;
-    --border-color: #e5e5e5;
-    --radius-lg: 16px;
-    --radius-md: 12px;
+// --- State Management ---
+let gameData = [];
+let coins = parseInt(localStorage.getItem('guessWordCoins')) || 0;
+let completedLevels = JSON.parse(localStorage.getItem('guessWordCompleted')) || [];
+
+let currentLevelData = null;
+let currentStars = 0;
+let discoveredAnswers = [];
+let wrongTaps = new Set();
+const HINT_COST = 20;
+
+// --- DOM Elements ---
+const screens = {
+    home: document.getElementById('screen-home'),
+    game: document.getElementById('screen-game'),
+    result: document.getElementById('screen-result')
+};
+const ui = {
+    coinCount: document.getElementById('coin-count'),
+    btnBack: document.getElementById('btn-back'),
+    levelList: document.getElementById('level-list'),
+    
+    // Game elements
+    targetChar: document.getElementById('target-char'),
+    targetPinyin: document.getElementById('target-pinyin'),
+    targetEn: document.getElementById('target-en'),
+    targetCn: document.getElementById('target-cn'),
+    starContainer: document.getElementById('star-container'),
+    btnHint: document.getElementById('btn-hint'),
+    foundCount: document.getElementById('found-count'),
+    totalCount: document.getElementById('total-count'),
+    discoveredList: document.getElementById('discovered-list'),
+    tileGrid: document.getElementById('tile-grid'),
+    
+    // Result elements
+    resultTitle: document.getElementById('result-title'),
+    resultMessage: document.getElementById('result-message'),
+    rewardCoins: document.getElementById('reward-coins'),
+    btnNext: document.getElementById('btn-next'),
+    btnHome: document.getElementById('btn-home')
+};
+
+// --- Initialization ---
+async function init() {
+    updateCoinDisplay();
+    try {
+        const response = await fetch('levels.json');
+        gameData = await response.json();
+        renderHome();
+    } catch (error) {
+        console.error("Failed to load levels.json", error);
+        ui.levelList.innerHTML = "<p>Error loading levels. Are you running this via a web server?</p>";
+    }
+
+    // Event Listeners
+    ui.btnBack.addEventListener('click', navigateHome);
+    ui.btnHome.addEventListener('click', navigateHome);
+    ui.btnNext.addEventListener('click', loadNextLevel);
+    ui.btnHint.addEventListener('click', useHint);
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+function updateCoinDisplay() {
+    ui.coinCount.innerText = coins;
+    localStorage.setItem('guessWordCoins', coins);
 }
 
-body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-    overflow-x: hidden;
+// --- Navigation ---
+function showScreen(screenName) {
+    Object.values(screens).forEach(s => s.classList.add('hidden'));
+    screens[screenName].classList.remove('hidden');
+    
+    if (screenName === 'home') {
+        ui.btnBack.classList.add('hidden');
+        renderHome();
+    } else {
+        ui.btnBack.classList.remove('hidden');
+    }
 }
 
-#app {
-    width: 100%;
-    max-width: 480px; /* Mobile app constraint */
-    background: var(--bg-color);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    position: relative;
+function navigateHome() {
+    showScreen('home');
 }
 
-.hidden {
-    display: none !important;
+// --- Home Screen Logic ---
+function renderHome() {
+    ui.levelList.innerHTML = '';
+    
+    gameData.forEach((level, index) => {
+        const btn = document.createElement('button');
+        btn.classList.add('level-btn');
+        
+        // Determine if level is unlocked
+        // Level 1 is always unlocked. Level N is unlocked if Level N-1 is in completedLevels.
+        const isUnlocked = (index === 0) || completedLevels.includes(gameData[index - 1].id);
+        const isCompleted = completedLevels.includes(level.id);
+
+        if (isCompleted) {
+            btn.classList.add('completed');
+            btn.innerHTML = `${level.id} ✓`;
+        } else if (isUnlocked) {
+            btn.classList.add('unlocked');
+            btn.innerHTML = `${level.id}`;
+        } else {
+            btn.classList.add('locked');
+            btn.innerHTML = `🔒<br><span style="font-size: 14px;">${level.id}</span>`;
+        }
+
+        // Click handler with progression check
+        btn.addEventListener('click', () => {
+            if (isUnlocked) {
+                startLevel(level);
+            } else {
+                // Shake effect on locked level click
+                btn.classList.add('wrong');
+                setTimeout(() => btn.classList.remove('wrong'), 400);
+            }
+        });
+
+        ui.levelList.appendChild(btn);
+    });
 }
 
-/* Header */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 20px;
-    background: var(--card-bg);
-    border-bottom: 2px solid var(--border-color);
-    height: 60px;
+// --- Game Logic ---
+function startLevel(level) {
+    currentLevelData = level;
+    currentStars = level.stars;
+    discoveredAnswers = [];
+    wrongTaps.clear();
+    
+    // Populate Target Card
+    ui.targetChar.innerText = level.target;
+    ui.targetPinyin.innerText = level.pinyin;
+    ui.targetEn.innerText = level.english;
+    ui.targetCn.innerText = level.chinese;
+    
+    // Setup Progress
+    ui.totalCount.innerText = level.answers.length;
+    updateProgressUI();
+    
+    // Setup Grid (Shuffle options)
+    const shuffledOptions = [...level.options].sort(() => Math.random() - 0.5);
+    ui.tileGrid.innerHTML = '';
+    
+    shuffledOptions.forEach(char => {
+        const tile = document.createElement('div');
+        tile.classList.add('tile');
+        tile.innerText = char;
+        tile.dataset.char = char;
+        tile.addEventListener('click', () => handleTileTap(tile, char));
+        ui.tileGrid.appendChild(tile);
+    });
+
+    renderStars();
+    updateHintButton();
+    showScreen('game');
 }
 
-.icon-btn {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
+function handleTileTap(tileElement, char) {
+    if (tileElement.classList.contains('locked') || currentStars <= 0) return;
+
+    if (currentLevelData.answers.includes(char)) {
+        // Correct Answer
+        tileElement.classList.add('locked');
+        discoveredAnswers.push(char);
+        updateProgressUI();
+        
+        if (discoveredAnswers.length === currentLevelData.answers.length) {
+            setTimeout(winLevel, 500);
+        }
+    } else {
+        // Wrong Answer
+        if (!wrongTaps.has(char)) {
+            wrongTaps.add(char);
+            currentStars--;
+            renderStars();
+        }
+        
+        // Flash red
+        tileElement.classList.add('wrong');
+        setTimeout(() => {
+            tileElement.classList.remove('wrong');
+        }, 400);
+
+        if (currentStars <= 0) {
+            setTimeout(loseLevel, 500);
+        }
+    }
 }
 
-.coin-display {
-    font-weight: bold;
-    font-size: 18px;
-    background: #fff4d4;
-    padding: 4px 12px;
-    border-radius: 20px;
-    color: #d19700;
+function renderStars() {
+    ui.starContainer.innerHTML = '⭐'.repeat(currentStars) + '❌'.repeat(currentLevelData.stars - currentStars);
 }
 
-/* Screens */
-.screen {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    animation: fadeIn 0.3s ease-in-out;
+function updateProgressUI() {
+    ui.foundCount.innerText = discoveredAnswers.length;
+    ui.discoveredList.innerHTML = '';
+    discoveredAnswers.forEach(char => {
+        const div = document.createElement('div');
+        div.classList.add('discovered-tile');
+        div.innerText = char;
+        ui.discoveredList.appendChild(div);
+    });
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+// --- Hint System ---
+function updateHintButton() {
+    if (coins < HINT_COST || discoveredAnswers.length === currentLevelData.answers.length) {
+        ui.btnHint.disabled = true;
+    } else {
+        ui.btnHint.disabled = false;
+    }
 }
 
-/* Home Screen */
-.hero {
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: 20px;
+function useHint() {
+    if (coins < HINT_COST) return;
+    
+    const missingAnswers = currentLevelData.answers.filter(a => !discoveredAnswers.includes(a));
+    if (missingAnswers.length === 0) return;
+    
+    const hintChar = missingAnswers[0];
+    
+    coins -= HINT_COST;
+    updateCoinDisplay();
+    updateHintButton();
+    
+    const tiles = Array.from(document.querySelectorAll('.tile'));
+    const targetTile = tiles.find(t => t.dataset.char === hintChar);
+    if (targetTile) {
+        handleTileTap(targetTile, hintChar);
+    }
 }
 
-.hero h1 {
-    font-size: 42px;
+// --- End Game States ---
+function winLevel() {
+    if (!completedLevels.includes(currentLevelData.id)) {
+        completedLevels.push(currentLevelData.id);
+        localStorage.setItem('guessWordCompleted', JSON.stringify(completedLevels));
+    }
+    
+    const reward = 10 + currentStars;
+    coins += reward;
+    updateCoinDisplay();
+    
+    ui.resultTitle.innerText = "Level Complete!";
+    ui.resultTitle.style.color = "var(--primary-color)";
+    ui.resultMessage.innerText = `You mastered the character ${currentLevelData.target}.`;
+    ui.rewardCoins.innerText = reward;
+    
+    const currentIndex = gameData.findIndex(l => l.id === currentLevelData.id);
+    const isLastLevel = currentIndex === gameData.length - 1;
+    
+    // Only show "Next Level" if there is a next level available
+    ui.btnNext.style.display = isLastLevel ? 'none' : 'block';
+    
+    showScreen('result');
 }
 
-.hero h1 span {
-    color: var(--primary-color);
+function loseLevel() {
+    ui.resultTitle.innerText = "Out of Stars!";
+    ui.resultTitle.style.color = "var(--error-color)";
+    ui.resultMessage.innerText = "You tapped too many incorrect strokes. Try again!";
+    ui.rewardCoins.innerText = "0";
+    
+    ui.btnNext.innerText = "Try Again";
+    ui.btnNext.style.display = 'block';
+    
+    ui.btnNext.onclick = () => {
+        ui.btnNext.innerText = "Next Level";
+        ui.btnNext.onclick = loadNextLevel;
+        startLevel(currentLevelData);
+    };
+    
+    showScreen('result');
 }
 
-.level-select {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-    gap: 15px;
+function loadNextLevel() {
+    const currentIndex = gameData.findIndex(l => l.id === currentLevelData.id);
+    if (currentIndex < gameData.length - 1) {
+        startLevel(gameData[currentIndex + 1]);
+    }
 }
 
-.level-btn {
-    background: var(--card-bg);
-    border: 2px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: 15px 0;
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--text-main);
-    cursor: pointer;
-    box-shadow: 0 4px 0 var(--border-color);
-    transition: transform 0.1s, box-shadow 0.1s, background-color 0.2s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    line-height: 1.2;
-}
-
-.level-btn:active:not(.locked) {
-    transform: translateY(4px);
-    box-shadow: 0 0 0 var(--border-color);
-}
-
-.level-btn.unlocked {
-    background: var(--card-bg);
-    color: var(--text-main);
-    border-color: var(--primary-color);
-    box-shadow: 0 4px 0 var(--primary-color);
-}
-
-.level-btn.completed {
-    background: var(--primary-color);
-    color: white;
-    border-color: var(--primary-dark);
-    box-shadow: 0 4px 0 var(--primary-dark);
-}
-
-.level-btn.locked {
-    background: #eaeaea;
-    color: #a1a1a1;
-    border-color: #d1d1d1;
-    box-shadow: 0 4px 0 #d1d1d1;
-    cursor: not-allowed;
-    opacity: 0.7;
-}
-
-/* Game Screen */
-.target-card {
-    background: var(--card-bg);
-    border-radius: var(--radius-lg);
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    border: 2px solid var(--border-color);
-    margin-bottom: 20px;
-}
-
-#target-char {
-    font-size: 64px;
-    line-height: 1;
-    margin-bottom: 5px;
-}
-
-#target-pinyin {
-    color: var(--text-muted);
-    margin-bottom: 15px;
-}
-
-.meanings p {
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.game-status {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.stars {
-    font-size: 24px;
-    letter-spacing: 2px;
-}
-
-.hint-btn {
-    background: #ffc800;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 0 #d19700;
-}
-.hint-btn:active {
-    transform: translateY(4px);
-    box-shadow: 0 0 0 #d19700;
-}
-.hint-btn:disabled {
-    background: #e5e5e5;
-    box-shadow: 0 4px 0 #cccccc;
-    cursor: not-allowed;
-}
-
-.progress-area {
-    margin-bottom: 20px;
-}
-
-.progress-area p {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.discovered-tiles {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    min-height: 44px;
-}
-
-.discovered-tile {
-    background: var(--primary-color);
-    color: white;
-    padding: 8px 14px;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-}
-
-.tile {
-    background: var(--card-bg);
-    border: 2px solid var(--border-color);
-    border-radius: var(--radius-md);
-    aspect-ratio: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 32px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 0 var(--border-color);
-    user-select: none;
-    transition: transform 0.1s, box-shadow 0.1s, background-color 0.2s;
-}
-
-.tile:active:not(.locked) {
-    transform: translateY(4px);
-    box-shadow: 0 0 0 var(--border-color);
-}
-
-.tile.locked {
-    background: var(--primary-color);
-    color: white;
-    border-color: var(--primary-dark);
-    box-shadow: 0 4px 0 var(--primary-dark);
-    cursor: default;
-}
-
-.tile.wrong, .level-btn.wrong {
-    animation: shake 0.4s;
-    background: var(--error-color) !important;
-    color: white !important;
-    border-color: #cc3c3c !important;
-    box-shadow: 0 4px 0 #cc3c3c !important;
-}
-
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
-}
-
-/* Result Screen */
-.result-card {
-    background: var(--card-bg);
-    border-radius: var(--radius-lg);
-    padding: 40px 20px;
-    text-align: center;
-    border: 2px solid var(--border-color);
-    margin: auto 0;
-}
-
-.result-card h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-.reward {
-    margin: 30px 0;
-}
-
-.big-coin {
-    font-size: 36px;
-    font-weight: bold;
-    color: #d19700;
-}
-
-.primary-btn, .secondary-btn {
-    width: 100%;
-    padding: 16px;
-    border-radius: var(--radius-md);
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-bottom: 15px;
-    border: none;
-}
-
-.primary-btn {
-    background: var(--primary-color);
-    color: white;
-    box-shadow: 0 4px 0 var(--primary-dark);
-}
-
-.primary-btn:active {
-    transform: translateY(4px);
-    box-shadow: 0 0 0 var(--primary-dark);
-}
-
-.secondary-btn {
-    background: transparent;
-    color: var(--text-muted);
-    border: 2px solid var(--border-color);
-}
+// Boot the app
+init();
