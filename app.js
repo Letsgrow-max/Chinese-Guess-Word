@@ -89,12 +89,11 @@ function renderHome() {
         const btn = document.createElement('button');
         btn.classList.add('level-btn');
         
-        // Robust unlocking rule: 
-        // Level 1 is always unlocked. 
-        // Any other level is unlocked if the PREVIOUS level ID is in completedLevels, 
-        // OR if the user has already completed this level itself.
-        const prevLevelId = index > 0 ? gameData[index - 1].id : null;
-        const isUnlocked = (index === 0) || completedLevels.includes(prevLevelId) || completedLevels.includes(level.id);
+        // Strict Sequential Logic:
+        // Level 1 is always unlocked.
+        // Any other level is ONLY unlocked if the PREVIOUS level has been successfully completed.
+        const prevLevel = index > 0 ? gameData[index - 1] : null;
+        const isUnlocked = (index === 0) || completedLevels.includes(prevLevel.id);
         const isCompleted = completedLevels.includes(level.id);
 
         if (isCompleted) {
