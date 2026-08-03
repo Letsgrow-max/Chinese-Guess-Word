@@ -121,36 +121,6 @@ function renderHome() {
         ui.levelList.appendChild(btn);
     });
 }
-        // Determine if level is unlocked
-        // Level 1 is always unlocked. Level N is unlocked if Level N-1 is in completedLevels.
-        const isUnlocked = (index === 0) || completedLevels.includes(gameData[index - 1].id);
-        const isCompleted = completedLevels.includes(level.id);
-
-        if (isCompleted) {
-            btn.classList.add('completed');
-            btn.innerHTML = `${level.id} ✓`;
-        } else if (isUnlocked) {
-            btn.classList.add('unlocked');
-            btn.innerHTML = `${level.id}`;
-        } else {
-            btn.classList.add('locked');
-            btn.innerHTML = `🔒<br><span style="font-size: 14px;">${level.id}</span>`;
-        }
-
-        // Click handler with progression check
-        btn.addEventListener('click', () => {
-            if (isUnlocked) {
-                startLevel(level);
-            } else {
-                // Shake effect on locked level click
-                btn.classList.add('wrong');
-                setTimeout(() => btn.classList.remove('wrong'), 400);
-            }
-        });
-
-        ui.levelList.appendChild(btn);
-    });
-}
 
 // --- Game Logic ---
 function startLevel(level) {
@@ -281,7 +251,6 @@ function winLevel() {
     const currentIndex = gameData.findIndex(l => l.id === currentLevelData.id);
     const isLastLevel = currentIndex === gameData.length - 1;
     
-    // Only show "Next Level" if there is a next level available
     ui.btnNext.style.display = isLastLevel ? 'none' : 'block';
     
     showScreen('result');
